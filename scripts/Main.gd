@@ -9,7 +9,7 @@ enum {
 	MESH, # best so far
 }
 var mode = MESH
-var code = GDS
+var code = GDN
 
 var terminal
 var cam
@@ -33,7 +33,7 @@ var player =  {
 
 func _ready():
 	set_screen_layout()
-	OS.vsync_enabled = true
+	OS.vsync_enabled = false
 
 	$Label.free()
 
@@ -52,7 +52,7 @@ func _ready():
 				MESH:    terminal = load("res://scripts/Terminal_Mesh.gd").new(data.GW, data.GH, data.CS, font)
 				_: assert(false, "invalid mode")
 		GDN:
-			terminal = load("res://scripts/Terminal.gdns").new()
+			terminal = load("res://scripts/gdnative/Terminal.gdns").new()
 			match mode:
 				DRAW:    terminal.initialize("draw", data.GW, data.GH, data.CS, font)
 				SPRITES: terminal.initialize("sprites", data.GW, data.GH, data.CS, font)
