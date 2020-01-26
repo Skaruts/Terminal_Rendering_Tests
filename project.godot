@@ -1,0 +1,179 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "GameCameraGDN",
+"language": "NativeScript",
+"path": "res://scripts/gdnative/GameCameraGDN.gdns"
+}, {
+"base": "Node",
+"class": "GameCameraGDS",
+"language": "GDScript",
+"path": "res://scripts/GameCamera.gd"
+}, {
+"base": "Node2D",
+"class": "MapGDN",
+"language": "NativeScript",
+"path": "res://scripts/gdnative/MapGDN.gdns"
+}, {
+"base": "Node2D",
+"class": "MapGDS",
+"language": "GDScript",
+"path": "res://scripts/MapGDS.gd"
+}, {
+"base": "Node2D",
+"class": "Terminal",
+"language": "NativeScript",
+"path": "res://scripts/gdnative/Terminal.gdns"
+}, {
+"base": "",
+"class": "Terminal_GDN_Draw",
+"language": "NativeScript",
+"path": "res://scripts/gdnative/Terminal_GDN_Draw.gdns"
+}, {
+"base": "",
+"class": "Terminal_GDN_Mesh",
+"language": "NativeScript",
+"path": "res://scripts/gdnative/Terminal_GDN_Mesh.gdns"
+}, {
+"base": "",
+"class": "Terminal_GDN_Server",
+"language": "NativeScript",
+"path": "res://scripts/gdnative/Terminal_GDN_Server.gdns"
+}, {
+"base": "",
+"class": "Terminal_GDN_Shaders",
+"language": "NativeScript",
+"path": "res://scripts/gdnative/Terminal_GDN_Shaders.gdns"
+}, {
+"base": "",
+"class": "Terminal_GDN_Sprites",
+"language": "NativeScript",
+"path": "res://scripts/gdnative/Terminal_GDN_Sprites.gdns"
+} ]
+_global_script_class_icons={
+"GameCameraGDN": "",
+"GameCameraGDS": "",
+"MapGDN": "",
+"MapGDS": "",
+"Terminal": "",
+"Terminal_GDN_Draw": "",
+"Terminal_GDN_Mesh": "",
+"Terminal_GDN_Server": "",
+"Terminal_GDN_Shaders": "",
+"Terminal_GDN_Sprites": ""
+}
+
+[application]
+
+config/name="Terminal Rendering Tests"
+run/main_scene="res://scenes/Main.tscn"
+icon="res://icon.png"
+main_scene="res://scenes/Main.tscn"
+name="Simple Cell Rendering Test"
+
+[audio]
+
+driver="Dummy"
+
+[autoload]
+
+utils="*res://scripts/autoload/Utils.gd"
+data="*res://scripts/autoload/Data.gd"
+debug="*res://scripts/autoload/Debugger.gd"
+
+[debug]
+
+settings/fps/force_fps=120
+gdscript/warnings/enable=false
+
+[display]
+
+window/size/width=1536
+window/size/height=960
+window/vsync/use_vsync=false
+window/use_vsync=false
+
+[image_loader]
+
+filter=false
+gen_mipmaps=false
+
+[input]
+
+quit={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":81,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
+ ]
+}
+shuffle={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+stress_test={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777221,"unicode":0,"echo":false,"script":null)
+ ]
+}
+left_click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+vsync={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777247,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_up={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_down={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_wait={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+toggle_debug={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777244,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+quality/intended_usage/framebuffer_allocation=1
+threads/thread_model=0
+environment/default_clear_color=Color( 0, 0, 0, 1 )
+viewport/default_clear_color=Color( 0, 0, 0, 1 )

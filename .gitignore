@@ -1,0 +1,6 @@
+.nimcache
+godotapi
+*.import
+*.exe
+_dlls
+*.pdb

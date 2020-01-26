@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/Main.gd" type="Script" id=1]
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 785.0
+margin_bottom = 504.0
+rect_scale = Vector2( 2, 2 )
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_colors/font_color = Color( 1, 0.758789, 0.1875, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/line_spacing = 8
+custom_constants/shadow_offset_y = 2
+custom_constants/shadow_as_outline = 0
+text = "(These values were from early tests, not applicable to current code)
+
+                                                   fps    Idle   |   Stress
+GDScript:
+        Terminal_Draw                              86   |  50
+        Terminal_Sprites                           70   |  38
+        Terminal_Shaders                       112   |  37    
+        Terminal_Server                            60   |  30    (shouldn't this be faster than anything?)
+        Terminal_Mesh                999999999  |  44 
+
+GDNative (compiled for release):
+        Terminal_GDN_Draw                       97 | 79
+        Terminal_GDN_Sprites                    74 | 47
+        Terminal_GDN_Shaders                117 | 45    
+        Terminal_GDN_Server                   124 | 88    
+        Terminal_GDN_Mesh                        ?  |  ? 
+	
+TODO: 
+        Polygon2Ds
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
