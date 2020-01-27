@@ -1,24 +1,67 @@
-    proc spr_initialize() =
+import random
+import gdw
+import godot
+import godotapi/[
+    godottypes,
+    sprite,
+    texture,
+    # canvas_item,
+    node_2d
+]
+
+const DEF_FG = col(0.75, 0.75, 0.75, 1)
+const DEF_BG = col(0, 0, 0, 1)
+
+gdobj Terminal_GDN_Mesh of Node2D:
+    var GW:int
+    var GH:int
+    var CS:int
+    var fg:Color = DEF_FG
+    var bg:Color = DEF_BG
+    var font:Texture
+
+    var fg_mesh_instance:MeshInstance2D
+    var bg_mesh_instance:MeshInstance2D
+    var fg_verts:PoolVector2Array
+    var fg_uvs:PoolVector2Array
+    var fg_cols:PoolColorArray
+    var fg_inds:PoolIntArray
+    var bg_verts:PoolVector2Array
+    var bg_uvs:PoolVector2Array
+    var bg_cols:PoolColorArray
+    var bg_inds:PoolIntArray
+
+
+    proc initialize*(gw, gh, cs:int, font:Texture) {.gdExport.} =
         self.name = "Terminal_GDN_Sprites"
         print("(GDNative) - initializing terminal: ", self.name)
-        self.spr_init_cells()
+        randomize()
+        self.GW = gw
+        self.GH = gh
+        self.CS = cs
+        self.font = font
 
-    proc spr_render() =
+        self.init_cells()
+
+    proc render*() {.gdExport.} =
         discard
 
-    proc spr_clear() =
+    proc clear*() {.gdExport.} =
         for i in 0..<self.GW*self.GH:
-            self.spr_fg_cells[i].frame = 0
-            self.spr_fg_cells[i].modulate = DEF_FG
-            self.spr_bg_cells[i].modulate = DEF_BG
+            self.fg_cells[i].frame = 0
+            self.fg_cells[i].modulate = DEF_FG
+            self.bg_cells[i].modulate = DEF_BG
 
-    proc spr_put(x, y, glyph:int) =
+    proc set_fg*(fg:Color) {.gdExport.} = self.fg = fg
+    proc set_bg*(fg:Color) {.gdExport.} = self.fg = fg
+
+    proc put*(x, y, glyph:int) {.gdExport.} =
         let i = x+y*self.GW
-        self.spr_fg_cells[i].frame = glyph
-        self.spr_fg_cells[i].modulate = self.fg
-        self.spr_bg_cells[i].modulate = self.bg
+        self.fg_cells[i].frame = glyph
+        self.fg_cells[i].modulate = self.fg
+        self.bg_cells[i].modulate = self.bg
 
-    proc spr_init_cells() =
+    proc init_cells() =
         print("(GDNative) - initializing cells")
 
         for j in 0..<self.GH:
@@ -28,7 +71,7 @@
                 # background
                 var bg_cell = gdnew[Sprite]()
                 self.add_child(bg_cell)
-                self.spr_bg_cells.add(bg_cell)
+                self.bg_cells.add(bg_cell)
 
                 bg_cell.centered = false
                 bg_cell.texture = self.font # as Texture
@@ -43,7 +86,7 @@
                 # foreground
                 var fg_cell = gdnew[Sprite]()
                 self.add_child(fg_cell)
-                self.spr_fg_cells.add(fg_cell)
+                self.fg_cells.add(fg_cell)
 
                 fg_cell.centered = false
                 fg_cell.texture = self.font # as Texture
