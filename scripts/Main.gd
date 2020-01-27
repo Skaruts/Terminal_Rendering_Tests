@@ -62,14 +62,21 @@ func _ready():
 				_: assert(false, "invalid mode")
 
 	add_child(terminal, true)
-	if code == GDS:
-		map = MapGDS.new(200, 200)
-		cam = GameCameraGDS.new(0, 0, data.GW, data.GH)
-	else:
-		map = MapGDN.new()
-		map.initialize(200, 200)
-		cam = GameCameraGDN.new()
-		cam.initialize(0, 0, data.GW, data.GH)
+#	if code == GDS:
+#		map = MapGDS.new()
+#		map.initialize(200, 200)
+#		cam = GameCameraGDS.new(0, 0, data.GW, data.GH)
+#	else:
+#		map = MapGDN.new()
+#		map.initialize(200, 200)
+#		cam = GameCameraGDN.new()
+#		cam.initialize(0, 0, data.GW, data.GH)
+
+	map = MapGDS.new()
+	map.initialize(200, 200)
+#	cam = GameCameraGDS.new(0, 0, data.GW, data.GH)
+	cam = GameCameraGDN.new()
+	cam.initialize(0, 0, data.GW, data.GH)
 
 	OS.set_window_title( "Simple Cell Rendering Test - " + terminal.name )
 
