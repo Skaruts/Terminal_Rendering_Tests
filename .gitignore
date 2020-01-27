@@ -4,3 +4,4 @@ godotapi
 *.exe
 _dlls
 *.pdb
+*.bat
