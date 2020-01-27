@@ -1,3 +1,8 @@
+
+# messy code -- I merged several terminal versions for quicker
+# compile times and less hassle with inheritance in gd-nim
+
+
 import random
 import gdw
 import godot
