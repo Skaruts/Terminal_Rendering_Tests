@@ -23,7 +23,25 @@ custom_constants/shadow_offset_x = 2
 custom_constants/line_spacing = 8
 custom_constants/shadow_offset_y = 2
 custom_constants/shadow_as_outline = 0
-text = "(These values were from early tests, not applicable to current code)
+text = "Several \"terminal emulator\" versions
+    - Draw      = uses '_draw' function stuff (draw_rect_region_bla_bla() ) to draw cells
+    - Sprites   = uses two grids of sprites for cell foregrounds (text) and backgrounds
+    - Shaders = uses one grid of sprites, each sprite with a shader that colors its fg and bg
+    - Server    = uses the VisualServer functions directly to draw cells
+    - Mesh     = uses two MeshInstance2Ds for the cell fgs and bgs
+		
+Notes:
+    - v-sync drops frame rates below 60 while moving player
+    - fps cap (in debug proj settings) keeps frame rates as high as they can be
+ 
+    - MeshInstance2D terminal seems to be taking the cake, especially in gdn
+
+
+
+
+
+
+(These values were from early stress tests, so they're not too relevant in the current code)
 
                                                    fps    Idle   |   Stress
 GDScript:
