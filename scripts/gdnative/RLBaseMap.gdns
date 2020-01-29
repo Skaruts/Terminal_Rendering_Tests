@@ -3,7 +3,7 @@
 [ext_resource path="res://nimlib.gdnlib" type="GDNativeLibrary" id=1]
 
 [resource]
-resource_name = "Terminal"
-class_name = "Terminal"
+resource_name = "RLBaseMap"
+class_name = "RLBaseMap"
 library = ExtResource( 1 )
-script_class_name = "Terminal"
+script_class_name = "RLBaseMap"

@@ -5,7 +5,7 @@ import godot, godotapi/[
 
 
 
-gdobj GameCameraGDN of Node2D:
+gdobj RLCamera of Node2D:
     var x*:int
     var y*:int
     var w*:int

@@ -6,11 +6,9 @@
 when not defined(release):
   import segfaults # converts segfaults into NilAccessError
 
-# import terminal_gdn_sprites
-# import terminal_gdn_draw
-# import terminal_gdn_shaders
-# import terminal_gdn_server
-import terminal
-import game_camera
-import map_gdn
-
+import rl_terminal  # avoid conflict with std terminal
+import rl_camera
+import rl_base_map
+# import fov
+import data
+export rl_base_map

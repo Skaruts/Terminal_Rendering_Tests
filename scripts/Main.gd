@@ -32,6 +32,8 @@ var player =  {
 
 
 func _ready():
+	print(get_tree())
+#	print(get_tree().get_root().get_node("data").get("fov_radius"))
 	set_screen_layout()
 	OS.vsync_enabled = false
 
@@ -52,7 +54,7 @@ func _ready():
 				MESH:    terminal = load("res://scripts/Terminal_Mesh.gd").new(data.GW, data.GH, data.CS, font)
 				_: assert(false, "invalid mode")
 		GDN:
-			terminal = load("res://scripts/gdnative/Terminal.gdns").new()
+			terminal = load("res://scripts/gdnative/RLTerminal.gdns").new()
 			match mode:
 				DRAW:    terminal.initialize("draw", data.GW, data.GH, data.CS, font)
 				SPRITES: terminal.initialize("sprites", data.GW, data.GH, data.CS, font)
@@ -62,20 +64,11 @@ func _ready():
 				_: assert(false, "invalid mode")
 
 	add_child(terminal, true)
-#	if code == GDS:
-#		map = MapGDS.new()
-#		map.initialize(200, 200)
-#		cam = GameCameraGDS.new(0, 0, data.GW, data.GH)
-#	else:
-#		map = MapGDN.new()
-#		map.initialize(200, 200)
-#		cam = GameCameraGDN.new()
-#		cam.initialize(0, 0, data.GW, data.GH)
 
-	map = MapGDS.new()
+	map = Map.new()
 	map.initialize(200, 200)
-#	cam = GameCameraGDS.new(0, 0, data.GW, data.GH)
-	cam = GameCameraGDN.new()
+	add_child(map)
+	cam = RLCamera.new()
 	cam.initialize(0, 0, data.GW, data.GH)
 
 	OS.set_window_title( "Simple Cell Rendering Test - " + terminal.name )
@@ -88,6 +81,7 @@ func _input(event):
 	if event.is_action_pressed("quit"): # Q / Esc
 		get_tree().quit()
 
+
 	elif event.is_action_pressed("vsync"): # F4
 		OS.vsync_enabled = not OS.vsync_enabled
 		print("vsync:", OS.vsync_enabled)
@@ -95,12 +89,12 @@ func _input(event):
 
 func _process(delta):
 	var took_turn = false
-	cam.move(player.x, player.y)
 
+	cam.move(player.x, player.y)
 	if data.took_turn:
 		terminal.clear()
 
-		map.update_stuff(terminal, cam)
+		map.update_stuff(terminal, cam, Vector2(player.x, player.y))
 
 		var p = cam.to_cam_coords(player.x, player.y)
 		terminal.set_fg(player.fg)

@@ -42,7 +42,7 @@ task "build", "Builds the client for the current platform":
 
     withDir "src":    # direShell loops forever when errors occur
         # direShell(["nimble", "c", ".."/"src"/"stub.nim", "-o:.."/"_dlls"/libFile])
-        shell(["nimble", "c", ".."/"src"/"stub.nim", "-o:.."/"_dlls"/libFile])
+        shell(["nimble", "c", "--oldgensym:on", ".."/"src"/"stub.nim", "-o:.."/"_dlls"/libFile])
 
 
 task "release", "Builds the client for the current platform":
@@ -61,7 +61,7 @@ task "release", "Builds the client for the current platform":
 
     withDir "src":    # direShell loops forever when errors occur
         # direShell(["nimble", "c", ".."/"src"/"stub.nim", "-o:.."/"_dlls"/libFile])
-        shell(["nimble", "c", "-d:release", ".."/"src"/"stub.nim", "-o:.."/"_dlls"/libFile])
+        shell(["nimble", "c", "-d:release", "--oldgensym:on", ".."/"src"/"stub.nim", "-o:.."/"_dlls"/libFile])
 
 
 task "clean", "Remove files produced by build":

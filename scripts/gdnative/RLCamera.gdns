@@ -3,7 +3,7 @@
 [ext_resource path="res://nimlib.gdnlib" type="GDNativeLibrary" id=1]
 
 [resource]
-resource_name = "MapGDN"
-class_name = "MapGDN"
+resource_name = "RLCamera"
+class_name = "RLCamera"
 library = ExtResource( 1 )
-script_class_name = "MapGDN"
+script_class_name = "RLCamera"

@@ -18,3 +18,8 @@ var key_cooldown          := 0.05
 var key_1st_cooldown      := 0.250
 var key_timer             := 0.0
 var max_key_timer         := key_1st_cooldown
+
+
+export var fov_radius = 42
+
+

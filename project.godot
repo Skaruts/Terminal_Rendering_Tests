@@ -9,10 +9,10 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node2D",
-"class": "GameCameraGDN",
+"base": "Node",
+"class": "Fov",
 "language": "NativeScript",
-"path": "res://scripts/gdnative/GameCameraGDN.gdns"
+"path": "res://scripts/gdnative/Fov.gdns"
 }, {
 "base": "Node",
 "class": "GameCameraGDS",
@@ -20,19 +20,29 @@ _global_script_classes=[ {
 "path": "res://scripts/GameCamera.gd"
 }, {
 "base": "Node2D",
-"class": "MapGDN",
-"language": "NativeScript",
-"path": "res://scripts/gdnative/MapGDN.gdns"
-}, {
-"base": "Node2D",
-"class": "MapGDS",
+"class": "Map",
 "language": "GDScript",
-"path": "res://scripts/MapGDS.gd"
+"path": "res://scripts/Map.gd"
 }, {
 "base": "Node2D",
-"class": "Terminal",
+"class": "MapGDS_BAK1",
+"language": "GDScript",
+"path": "res://scripts/MapGDS_BAK1.gd"
+}, {
+"base": "Node2D",
+"class": "RLBaseMap",
 "language": "NativeScript",
-"path": "res://scripts/gdnative/Terminal.gdns"
+"path": "res://scripts/gdnative/RLBaseMap.gdns"
+}, {
+"base": "Node2D",
+"class": "RLCamera",
+"language": "NativeScript",
+"path": "res://scripts/gdnative/RLCamera.gdns"
+}, {
+"base": "Node2D",
+"class": "RLTerminal",
+"language": "NativeScript",
+"path": "res://scripts/gdnative/RLTerminal.gdns"
 }, {
 "base": "",
 "class": "Terminal_GDN_Draw",
@@ -60,11 +70,13 @@ _global_script_classes=[ {
 "path": "res://scripts/gdnative/Terminal_GDN_Sprites.gdns"
 } ]
 _global_script_class_icons={
-"GameCameraGDN": "",
+"Fov": "",
 "GameCameraGDS": "",
-"MapGDN": "",
-"MapGDS": "",
-"Terminal": "",
+"Map": "",
+"MapGDS_BAK1": "",
+"RLBaseMap": "",
+"RLCamera": "",
+"RLTerminal": "",
 "Terminal_GDN_Draw": "",
 "Terminal_GDN_Mesh": "",
 "Terminal_GDN_Server": "",
@@ -92,7 +104,7 @@ debug="*res://scripts/autoload/Debugger.gd"
 
 [debug]
 
-settings/fps/force_fps=120
+settings/fps/force_fps=60
 gdscript/warnings/enable=false
 
 [display]
@@ -175,5 +187,4 @@ toggle_debug={
 quality/driver/driver_name="GLES2"
 quality/intended_usage/framebuffer_allocation=1
 threads/thread_model=0
-environment/default_clear_color=Color( 0, 0, 0, 1 )
 viewport/default_clear_color=Color( 0, 0, 0, 1 )

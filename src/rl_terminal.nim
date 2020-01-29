@@ -31,7 +31,7 @@ const UVS = 1.0/16.0  # uv size
 const DEF_FG* = col(0.75, 0.75, 0.75, 1)
 const DEF_BG* = col(0, 0, 0, 1)
 
-gdobj Terminal of Node2D:
+gdobj RLTerminal of Node2D:
     var GW*:int
     var GH*:int
     var CS*:int

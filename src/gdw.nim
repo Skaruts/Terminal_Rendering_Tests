@@ -23,8 +23,12 @@ template rect2*(v1, v2:untyped):Rect2 =
 template col*(): Color =
     initColor()
 
+
 template col*(r,g,b:untyped, a:untyped = 1.0): Color =
     initColor( float32(r), float32(g), float32(b), float32(a) )
+
+template col*(c:Color): Color =
+    initColor(c.r, c.g, c.b, c.a)
 
 proc col*(c:uint32): Color =
     col(
@@ -47,4 +51,23 @@ proc col*(c:string): Color =
     elif len(str) == 7: str &= "f"    # TODO: this should be an error?
 
     col(uint32(parseHexInt(str)))
+
+proc darkened*(c:Color, percent:float):Color =
+    col(
+        c.r * (1.0-percent),
+        c.g * (1.0-percent),
+        c.b * (1.0-percent),
+        c.a
+    )
+
+proc lightened*(c:Color, percent:float):Color =
+    col(
+        c.r * (1.0+percent),
+        c.g * (1.0+percent),
+        c.b * (1.0+percent),
+        c.a
+    )
+
+
+
 
