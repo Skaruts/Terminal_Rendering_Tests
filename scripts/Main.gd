@@ -8,7 +8,7 @@ enum {
 	SERVER, # not working properly
 	MESH, # best so far
 }
-var mode = MESH
+var mode = MESH  # this is broken at this point, don't change
 var code = GDN
 
 var terminal

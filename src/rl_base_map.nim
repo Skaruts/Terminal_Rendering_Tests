@@ -75,7 +75,7 @@ gdobj RLBaseMap of Node2D:
 
 
     # method ready*() =
-    #     print("!--  MAP INITIALIZE TEST")
+    #     print("------------  MAP INITIALIZE TEST   ----------")
 
     #     # print(self.get_tree().root)
 
@@ -93,7 +93,7 @@ gdobj RLBaseMap of Node2D:
     #     # print("data class: ", data.get_class())
     #     # print("data list: ", data.getPropertyListImpl())
 
-    #     print("---  MAP INITIALIZE TEST  --! ")
+    #     print("---------------------------------------------")
 
     proc can_move*(x, y:int):bool {.gdExport.} =
         return self.tilemap[x+y*self.w] != WALL
@@ -124,7 +124,7 @@ gdobj RLBaseMap of Node2D:
 
                         if tile.discovered:
                             if visible: terminal.set_fg(tile.fg)
-                            else:       termruninal.set_fg(tile.fg.darkened(0.65))
+                            else:       terminal.set_fg(tile.fg.darkened(0.65))
 
                             terminal.put(int(p.x), int(p.y), tile.glyph)
 
@@ -134,15 +134,3 @@ gdobj RLBaseMap of Node2D:
 
     proc update_stuff*(terminal:RLTerminal, cam:RLCamera) {.gdExport.} =
         self.update_tiles(terminal, cam)
-
-# SkarutsLast Sunday at 5:57 AM
-# is it possible for gdnative code to access a class that is defined in gdscript?
-
-# SheepAndShepherdLast Sunday at 6:06 AM
-# Yes. Refer to it by its base class, use call("method", args...), get("property"), set("property", value) to access it.
-# The properties have to be exported to be accessible.
-
-# SheepAndShepherdLast Sunday at 3:31 PM
-# @Skaruts should all work in Nim too. For convenience you could make the Autoload in Nim. GDScript doesn't need get/set/call to access gdn, since it's a dynamic language.
-
-
